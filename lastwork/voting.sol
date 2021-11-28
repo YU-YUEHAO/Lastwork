@@ -19,9 +19,8 @@ contract EthVoting {
         uint voteTimeStamp; //投票时的区块时间
         bool initialized;   //判断是否投过票的标志
     }
-    string [] userList;
-    modifier Onlyadmin
     
+   
     //提案内容
     struct Proposal {
         string pName;        //提案标题
@@ -147,6 +146,7 @@ contract EthVoting {
         return keccak256(abi.encodePacked(address(this), _pId, _pName, _pCtx));
     }
 
+   //检查签名
     function _checkSigs(uint _pId,bytes memory _sigs, bytes32 _txHash)
         private
         view
@@ -160,7 +160,18 @@ contract EthVoting {
                 return false;
             }
         }
-
         return true;
+    }
+    
+     //提议人取消提案
+    function giveupProsal(uint _pId) external {
+        require(proposals[_pId].chairperson == msg.sender);
+        address a=0x0000000000000000000000000000000000000000;
+         proposals[_pId].pName="null";
+         proposals[_pId].pCtx="null";
+         proposals[_pId].chairperson=a;
+         proposals[_pId].voteCount=0;
+         proposals[_pId].initialized=false;
+         proposals[_pId].limitTime=0;
     }
 }

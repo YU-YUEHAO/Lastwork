@@ -714,6 +714,7 @@ input::-webkit-input-placeholder {
 <div class="main">
     <h1 class="logo">
     <a href="goodweb.html">
+    <img src="http://www.bituplink.com/wp-content/uploads/favicon.png">
     <span>bituplink导航</span>
     </a>
     </h1>
@@ -739,7 +740,7 @@ input::-webkit-input-placeholder {
         <div class="menu" id="menu">
             <ul class="scrollcontent">
                 <!--左侧目录，按照需要修改和添加，参考已有的修改名称和href-->
-                <li><a href="http://localhost:3000">投票</a></li>
+                <li><a href="http://localhost:3000/index">投票</a></li>
                 <li><a href="http://localhost:3000/inquire">查询投票</a></li>
             </ul>
         </div>
@@ -769,27 +770,32 @@ input::-webkit-input-placeholder {
                     <!--获取内容列表-->
                     <div class="clearfix two-list-box">
                         <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="#" class="card-link" >
-                            <div class="card-tit">投票名称</div>
+                            <a href="#" class="card-link" target="_blank">
+                            <div class="card-tit">请输入投票名称</div>
                             <div class="card-desc"><input type="text" id="vote_name"></div>
                             </a>
                         </div>
                         <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="#" class="card-link" >
-                            <div class="card-tit">投票内容</div>
+                            <a href="#" class="card-link" target="_blank">
+                            <div class="card-tit">请输入投票内容</div>
                             <div class="card-desc"><input type="text" id="vote_content"></div>
                             </a>
                         </div>
                         <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="http://www.zhaikexueyuan.com/" class="card-link">
-                            <div class="card-tit">投票截至时间</div>
+                            <a href="http://www.zhaikexueyuan.com/" class="card-link" target="_blank">
+                            <div class="card-tit">请输入投票截至时间</div>
                             <div class="card-desc"><input type="text" id="vote_limittime"></div>
                             </a>
                         </div>
                         <div class="col-md-3 col-sm-4 col-xs-6">
-                            <a href="http://jirengu.com/app/album/index" class="card-link" >
-                            <div class="card-tit">投票案例编号</div>
+                            <a href="http://localhost:3000/index" class="card-link" target="_blank">
+                            <div class="card-tit">请输入投票案例编号</div>
                             <div class="card-desc"><input type="text" id="vote_numbering"></div>
+                            </a>
+                        </div>
+                        <div class="col-md-3 col-sm-4 col-xs-6" style="float: right;">
+                            <a href="#" class="card-link" target="_blank">
+                            <div class="card-desc" sureProal()><button id="vote_numbering">请确定提交投案</button></div>
                             </a>
                         </div>
                        
@@ -934,10 +940,14 @@ $("#search-btn").click(function(){
     window.open(thisSearch + textValue)
   }
 });
+function sureProal(){
+
+}
+
 </script>
-</div>
- <!-- <script type="text/javascript" src="/javascripts/vote.js"></script> -->
- <script src="https://cdn.jsdelivr.net/npm/web3@latest/dist/web3.min.js"></script>
+<!-- </div>\ <script type="text/javascript" src="/javascripts/vote.js"></script> -->
+ <script type="text/javascript" src="/javascripts/mask.js"></script>
+ <script type="text/javascript" src="/javascripts/web3.min.js"></script>
 
 </body>
 </html>
